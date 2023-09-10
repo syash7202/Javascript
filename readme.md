@@ -102,7 +102,7 @@ else{
 
 ```
 
-## Loops (for, forEach, forin, while, do-while)
+## Loops (for, forEach, for-in, while, do-while)
 
 ```
 for(var i =0; i<10;i++){
@@ -161,10 +161,10 @@ function abcd(a){
 
 abcd(function(){console.log("Yash");})
 
-/* here a = function(){
-    console.log("Yash");
-    }
-*/
+<!--    here a = function(){
+        console.log("Yash");
+        } -->
+
 ```
 
 ## Arrays
