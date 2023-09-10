@@ -60,10 +60,21 @@ var a = 100;
 when the interpreter encounters line number 21 it basically breaks it into two commands
 var a; & then the acutall command i.e console.log(a);
 
+Hoisting behaviour is different for let & const and var.
+
 ## Types in Javascript
 
-- Primitive : number, boolean, string, etc
+- Primitive : number, boolean, string, undefined, null, symbol, object, bigint
 - Reference : [], {}, () :: when these values are copied then real values aren't copied but the refernce value is passed. Changes made to these data type are affected in the main variable.
+
+**JavaScript evaluates expressions from left to right:**
+
+```
+let x = 20+10+"Yash";  ---> 30Yash
+
+let x = "Yash"20+10+;  ---> Yash2010
+
+```
 
 ## Conditionals (if, else, else-if )
 
@@ -178,8 +189,11 @@ var arr = [1,2,3,4,5,6,7,8,9];
 ### Push Pop Shift Unshift Splice
 
 arr.pop(); ---> removes the last value from the array
-arr.push(10) ---> adds the given arrguement at the end of array  
- arr.shift() ---> removes the first value from the array
+
+arr.push(10) ---> adds the given arrguement at the end of array
+
+arr.shift() ---> removes the first value from the array
+
 arr.unshift(0) ---> adds the given arguement at the beginning of the array
 
 arr.splice(start_index, no. of elements) ---> remove elements from the middle of array
@@ -242,6 +256,17 @@ delete a.role; ---> to delete a property from an object
 ### Property VS Method
 
 Any property of an object whose value is a fuction is known as Method.
+
+## Using "this" keyword
+
+In JavaScript, the this keyword refers to an object.Which object depends on how this is being invoked (used or called).
+The this keyword refers to different objects depending on how it is used:
+|---|---|
+|Object|this refers to the object|
+|Alone|this refers to the global object|
+|Function|this refers to the global object|
+|Function|in a strict mode, this is undefined|
+|Event|this refers to the element which received the event|
 
 ## browser context api
 
