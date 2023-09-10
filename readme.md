@@ -14,7 +14,31 @@ constant ---> stores immortal values
 
 ## var, const & let
 
-var --->
+- var --->
+  -- defined in ES5
+  -- it is function scope
+  -- var addes itself to window object
+
+funticon abcd(){
+for(var i =0; i<10; i++){
+console.log(i);
+}
+console.log(i); // is valid and give value to i=10 bcz i is declared inside fuction abcd and is valid throughout the fuction.
+}
+
+- let / const --->
+  -- defined in ES6
+  -- it is braces-scoped
+  -- let/const doesn't add itself to the window object
+
+funticon abcd(){
+for(let i =0; i<10; i++){
+console.log(i);
+}
+console.log(i); // is invalid and gives error bcz though i is declared inside fuction abcd but it will be valid only inside the following braces.
+}
+
+** Many features aren't available in JS but we can use them as JS extracts them from the window and thus these are known as window object.**
 
 ## Hoisting
 
@@ -82,6 +106,7 @@ arr.splice(2,5) ---> remove from 2 index and 5 elemnets i.e (3,4,5,6,7)
 
 1. Blank object : var a = {};
 2. Filled object :
+
    var a= {
    name : "Yash",
    age = 21,
