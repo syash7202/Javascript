@@ -5,6 +5,8 @@ const getColorCode = () => {
   const element = document.querySelector(".container");
   element.style.backgroundColor = randomCode;
   document.getElementById("color-code").innerText = randomCode;
+
+  navigator.clipboard.writeText(randomCode);
 };
 getColorCode();
 
