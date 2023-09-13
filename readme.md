@@ -38,15 +38,15 @@ funticon abcd(){
 for(let i =0; i<10; i++){
 console.log(i);
 }
-console.log(i); // is invalid and gives error bcz though i is declared inside fuction abcd but it will be valid only inside the following braces.
+console.log(i); // is invalid and gives error bcz though i is declared inside function abcd but it will be valid only inside the following braces.
 }
 ```
 
 ## Window Object
 
-**Many features aren't available in JS but we can use them as JS extracts them from the window and thus these are known as window object.**
+**Many features aren't available in JS but we can use them as JS extracts them from the window and thus these are known as window objects.**
 
-**This is one of the main issue and reason why let was introduced as var adds iteself into window object and thus exposes the date which can lead to breaches.**
+**This is one of the main issues and reasons why let was introduced as var adds itself into the window object and thus exposes the data which can lead to breaches.**
 
 ## Hoisting
 
@@ -57,15 +57,15 @@ console.log(a); // valid command
 var a = 100;
 ```
 
-when the interpreter encounters line number 21 it basically breaks it into two commands
-var a; & then the acutall command i.e console.log(a);
+When the interpreter encounters line number 21 it basically breaks it into two commands
+var a; & then the actual command i.e. console.log(a);
 
 Hoisting behaviour is different for let & const and var.
 
 ## Types in Javascript
 
-- Primitive : number, boolean, string, undefined, null, symbol, object, bigint
-- Reference : [], {}, () :: when these values are copied then real values aren't copied but the refernce value is passed. Changes made to these data type are affected in the main variable.
+- Primitive: number, boolean, string, undefined, null, symbol, object, bigint
+- Reference : [], {}, ():: when these values are copied then real values aren't copied but the reference value is passed. Changes made to these data types are affected in the main variable.
 
 **JavaScript evaluates expressions from left to right:**
 
@@ -92,7 +92,7 @@ else{
 
 ## Truthy & Falsey values
 
-in javascript, evertything is either a truthy values or a falsey value.
+in javascript, everything is either a truthy value or a falsey value.
 
 - Falsey : 0 , Flase, undefined, null , NaN, document,all
 - Truthy : all values other than falsey values
