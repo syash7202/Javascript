@@ -60,7 +60,7 @@ var a = 100;
 When the interpreter encounters line number 21 it basically breaks it into two commands
 var a; & then the actual command i.e. console.log(a);
 
-Hoisting behaviour is different for let & const and var.
+Hoisting behavior is different for let & const and var.
 
 ## Types in Javascript
 
@@ -92,10 +92,10 @@ else{
 
 ## Truthy & Falsey values
 
-in javascript, everything is either a truthy value or a falsey value.
+In JavaScript, everything is either a truthy value or a falsey value.
 
-- Falsey : 0 , Flase, undefined, null , NaN, document,all
-- Truthy : all values other than falsey values
+- Falsy: 0, Flase, undefined, null, NaN, "" or ''
+- Truthy: all values other than falsy values
 
 ```
 if("Yash){
@@ -159,7 +159,7 @@ function_name(arguements); // function call
 
 ### Callback Functions
 
-The functions which are executed when a certain task is completed are known as callback funations.
+The functions which are executed when a certain task is completed are known as callback functions.
 
 ### First-class Functions
 
@@ -190,19 +190,19 @@ var arr = [1,2,3,4,5,6,7,8,9];
 
 arr.pop(); ---> removes the last value from the array
 
-arr.push(10) ---> adds the given arrguement at the end of array
+arr.push(10) ---> adds the given argument at the end of the array
 
 arr.shift() ---> removes the first value from the array
 
-arr.unshift(0) ---> adds the given arguement at the beginning of the array
+arr.unshift(0) ---> adds the given argument at the beginning of the array
 
 arr.splice(start_index, no. of elements) ---> remove elements from the middle of array
 
-arr.splice(2,5) ---> remove from 2 index and 5 elemnets i.e (3,4,5,6,7)
+arr.splice(2,5) ---> remove from 2 index and 5 elements i.e (3,4,5,6,7)
 
 ### Array declaration behind the scenes
 
-Array created in JS aren't stored as array, but as objects.
+Array created in JS aren't stored as array but as objects.
 
 ```
 var arr = [9,8,7,6,5,4];  --->  arr = {
@@ -217,9 +217,9 @@ var arr = [9,8,7,6,5,4];  --->  arr = {
 
 To check if it's an array one can use a function called isArray([]).
 
-### Negative indexs can be given in array
+### Negative indexes can be given in an array
 
-As array is stored as an object thus its can be done.
+As an array is stored as an object it can be done.
 
 ```
 var arr = [9,8,7,6,5,4];  --->  arr = {
@@ -235,7 +235,7 @@ arr[-1] = 10;               |            0:9,
 
 ## Object
 
-1. Blank object : var a = {};
+1. Blank object: var a = {};
 2. Filled object :
 
 ```
@@ -255,20 +255,21 @@ delete a.role; ---> to delete a property from an object
 
 ### Property VS Method
 
-Any property of an object whose value is a fuction is known as Method.
+Any property of an object whose value is a function is known as a Method.
 
 ## Using "this" keyword
 
-In JavaScript, the this keyword refers to an object.Which object depends on how this is being invoked (used or called).
-The this keyword refers to different objects depending on how it is used:
+In JavaScript, this keyword refers to an object. Which object depends on how this is being invoked (used or called).
+The 'this' keyword refers to different objects depending on how it is used:
+|Method|Reference|
 |---|---|
-|Object|this refers to the object|
-|Alone|this refers to the global object|
-|Function|this refers to the global object|
-|Function|in a strict mode, this is undefined|
-|Event|this refers to the element which received the event|
+|Object| This refers to the object|
+|Alone| This refers to the global object|
+|Function| This refers to the global object|
+|Function| In a strict mode, this is undefined|
+|Event| This refers to the element which received the event|
 
-## browser context api
+## Browser context API
 
 ## Stack
 
@@ -276,19 +277,22 @@ The this keyword refers to different objects depending on how it is used:
 
 ## Execution Context
 
-When a function is executed then it makes its own imaginary container which contains three parts : 1. Variables 2. Functions inside that parent function 3. Lexical Environment of that function
+When a function is executed it makes its own imaginary container which contains three parts:
+1. Variables
+2. Functions inside that parent function
+3. Lexical Environment of that function
 
 ## Lexical Environment
 
-it is technically a chart contains scope & scope-chain of that particular function i.e contains information about things what a particular function can access and what it cannot.
+it is technically a chart containing the scope & scope-chain of that particular function i.e. contains information about things that a particular function can access and what it cannot.
 
-## How to copy refernce values
+## How to copy reference values
 
-it is done by using spread operator '...' as it copies the value from a variable or object.
+it is done by using the spread operator '...' as it copies the value from a variable or object.
 
 ```
 var a = [1,2,3,4,5,6,7,8,9];
-var b = [...a]; // this gives b a copy of a and changes made to b doesn't reflect in a.
+var b = [...a]; //This gives b a copy of a and changes made to b don't reflect in a.
 
 var obj1 = {nmae:"Yash"};
 var obj2 = {...obj1};
