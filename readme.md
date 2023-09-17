@@ -273,7 +273,39 @@ The 'this' keyword refers to different objects depending on how it is used:
 
 ## Stack
 
+When a primitive variable is declared then you get a copy of the variable value and changes to it doesn't changes the original value.
+
+```
+let myName = "YASH";
+let myOtherName = myName;
+
+myOtherName = "carter";
+
+console.log(myName);        --> YASH
+console.log(myOtherName);   --> carter
+
+
+```
+
 ## Heap
+
+When a non-primitive variable is declared then you get a reference of the variable and changes to it changes the original value.
+
+```
+let myID= {
+    name: "yash"
+    age: 21
+}
+
+console.log(myID.name);        --> YASH
+
+let myID2 = myID;
+
+myID2.name = "carter";
+
+console.log(myID.name);        --> carter
+console.log(myOtherName);   --> carter
+```
 
 ## Execution Context
 
