@@ -239,11 +239,16 @@ arr[-1] = 10;               |            0:9,
 2. Filled object :
 
 ```
+
+   const mySymbol = symbol("value1);
+
    var a= {
    name : "Yash",
    age = 21,
-   email : "workspacesyash7202@gmail.com"
-   role : function_name() {}
+   email : "workspacesyash7202@gmail.com",
+   role : function_name() {},
+   "days in job" : 500,
+   [mySymbol] : "value2";
    }
 ```
 
@@ -252,6 +257,13 @@ a.name ---> To access the property of an object
 a.name = "Carter"; ---> to update the value of any property of an object
 
 delete a.role; ---> to delete a property from an object
+
+By default the keys are of type string and is interpreted as "name" : "yash" but when we want to declare a string key value then dot(.) operator doesn't work.
+
+To access it we need to pass it as string: a["days in job"]
+
+To have a symbol data type as key we need to explicitly declare it in square brackets:
+now the type of mySymbol in object is symbol.
 
 ### Property VS Method
 
@@ -310,6 +322,7 @@ console.log(myOtherName);   --> carter
 ## Execution Context
 
 When a function is executed it makes its own imaginary container which contains three parts:
+
 1. Variables
 2. Functions inside that parent function
 3. Lexical Environment of that function
