@@ -186,16 +186,21 @@ These function doesnt end with the block scope and thus need semicolon(;) at end
 // (function-defination) (function call);
 
 
-// use with classic funtion
+// use with classic function also known as named IIFE
 (function func_name() {
     //statements
 })();
 
 
-// use with arrow funtion
+// use with arrow function also known as unnamed IIFE
 (() => {
     //statements
 })();
+
+
+((dbName) => {
+    console.log(`Connect to DB -> ${dbName}`)
+})(database_name);
 
 
 ```
@@ -362,7 +367,18 @@ console.log(myID.name);        --> carter
 console.log(myOtherName);   --> carter
 ```
 
-## Execution Context
+## JavaScript Execution Context
+
+When a javascript file is put to execution then three phases are encountered:
+
+1. Global Execution Context : in this all the elements are assigned to this operator. (global EC is different for browser, node and engines but in browser value of this is in window object.)
+2. Function Execution Context
+3. Eval Execution Context
+
+### Phases of code execution in JS
+
+1. Memory Creation Phase : variable are declared with undefined value and function definations are defined
+2. Execution Phase : variables are assigned the values and computions are made and fuctions are called.
 
 When a function is executed it makes its own imaginary container which contains three parts:
 
@@ -370,7 +386,30 @@ When a function is executed it makes its own imaginary container which contains 
 2. Functions inside that parent function
 3. Lexical Environment of that function
 
-## Lexical Environment
+```
+let num1 = 10;
+let num2 = 20;
+
+function addtwo(n1, n2) {
+  return (result = n1 + n2);
+}
+console.log(addtwo(num1, num2));
+```
+
+Execution :
+
+1. Global
+2. Memory :
+   num1 - undefined
+   num2 - undefined
+   addtwo - defination
+
+3. Execution :
+   num1 - 10
+   num2 - 20
+   call of addtwo : creates a new variable environment and it runs step 2 and 3 in a single thread and _now the return of thisfunctions goes to global execution_.
+
+### Lexical Environment
 
 it is technically a chart containing the scope & scope-chain of that particular function i.e. contains information about things that a particular function can access and what it cannot.
 
