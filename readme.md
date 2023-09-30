@@ -13,7 +13,6 @@ variable ---> stores changing values </br>
 constant ---> stores immortal values
 
 ## var, const & let
-
 - var --->
   -- defined in ES5
   -- it is function scope
