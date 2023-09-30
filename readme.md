@@ -400,14 +400,15 @@ Execution :
 
 1. Global
 2. Memory :
-   num1 - undefined
-   num2 - undefined
-   addtwo - defination
+
+   - num1 - undefined
+   - num2 - undefined
+   - addtwo - defination
 
 3. Execution :
-   num1 - 10
-   num2 - 20
-   call of addtwo : creates a new variable environment and it runs step 2 and 3 in a single thread and **now the return of thisfunctions goes to global execution**.
+   - num1 - 10
+   - num2 - 20
+   - call of addtwo : creates a new variable environment and it runs step 2 and 3 in a single thread and **now the return of this functions goes to global execution**.
 
 ### Lexical Environment
 
