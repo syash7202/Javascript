@@ -156,10 +156,6 @@ function function_name(parameters){ // defination
 
 function_name(arguements); // function call
 
-const var_name = function_name()  {
-    //statements
-    // when using {} we have to use return keyword
-}
 ```
 
 ### Arrow Functions
