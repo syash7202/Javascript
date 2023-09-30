@@ -13,6 +13,7 @@ variable ---> stores changing values </br>
 constant ---> stores immortal values
 
 ## var, const & let
+
 - var --->
   -- defined in ES5
   -- it is function scope
@@ -162,6 +163,17 @@ const var_name = function_name()  {
 ```
 
 ### Arrow Functions
+
+```
+// normal arrow function
+const var_name = () => {
+    //statement
+    // when using {} we have to use return keyword
+}
+
+// implicit arrow function
+const var_name = () = ( x + y ) // single line statement without return with use of ()
+```
 
 ### Callback Functions
 
