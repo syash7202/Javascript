@@ -4,12 +4,12 @@
 
 Word doesn't contain any semantics in JS, while keywords contain semantics
 
-hello ---> word <br>
+hello ---> word </br>
 for ---> keyword
 
 ## variable & constants
 
-variable ---> stores changing values <br>
+variable ---> stores changing values </br>
 constant ---> stores immortal values
 
 ## var, const & let
