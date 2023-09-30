@@ -2,7 +2,7 @@
 
 ## Word vs Keyword
 
-Word doesn't contain any sematic in js, while key word conatins semantics
+Word doesn't contain any semantic in JS, while keywords conatins semantics
 
 hello ---> word
 for ---> keyword
@@ -17,14 +17,14 @@ constant ---> stores immortal values
 - var --->
   -- defined in ES5
   -- it is function scope
-  -- var addes itself to window object
+  -- var adds itself to the window object
 
 ```
 funticon abcd(){
 for(var i =0; i<10; i++){
 console.log(i);
 }
-console.log(i); // is valid and give value to i=10 bcz i is declared inside fuction abcd and is valid throughout the fuction.
+console.log(i); // is valid and gives value to i=10 bcz i is declared inside function abcd and is valid throughout the function.
 }
 ```
 
@@ -50,7 +50,7 @@ console.log(i); // is invalid and gives error bcz though i is declared inside fu
 
 ## Hoisting
 
-a variable or function can be used before it declaration.
+a variable or function can be used before its declaration.
 
 ```
 console.log(a); // valid command
