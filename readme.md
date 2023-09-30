@@ -407,7 +407,7 @@ Execution :
 3. Execution :
    num1 - 10
    num2 - 20
-   call of addtwo : creates a new variable environment and it runs step 2 and 3 in a single thread and _now the return of thisfunctions goes to global execution_.
+   call of addtwo : creates a new variable environment and it runs step 2 and 3 in a single thread and **now the return of thisfunctions goes to global execution**.
 
 ### Lexical Environment
 
