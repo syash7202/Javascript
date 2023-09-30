@@ -2,18 +2,17 @@
 
 ## Word vs Keyword
 
-Word doesn't contain any semantic in JS, while keywords conatins semantics
+Word doesn't contain any semantics in JS, while keywords contain semantics
 
-hello ---> word
+hello ---> word </br>
 for ---> keyword
 
 ## variable & constants
 
-variable ---> stores changing values
+variable ---> stores changing values </br>
 constant ---> stores immortal values
 
 ## var, const & let
-
 - var --->
   -- defined in ES5
   -- it is function scope
