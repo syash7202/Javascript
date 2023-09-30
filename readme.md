@@ -186,13 +186,14 @@ These function doesnt end with the block scope and thus need semicolon(;) at end
 // (function-defination) (function call);
 
 
-
-(function func_name() { // use with classic funtion
+// use with classic funtion
+(function func_name() {
     //statements
 })();
 
 
-(() => { // use with arrow funtion
+// use with arrow funtion
+(() => {
     //statements
 })();
 
