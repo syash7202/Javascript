@@ -175,6 +175,30 @@ const var_name = () => {
 const var_name = () = ( x + y ) // single line statement without return with use of ()
 ```
 
+### Immediately Invoked Function Expression (IIFE)
+
+When the function are called as soon as it is declared are know as IIFE reason to do it is to prevent errors from global scoping polluting with variables.
+<br>
+These function doesnt end with the block scope and thus need semicolon(;) at end.
+
+```
+    ()(); // syntax for the IIFE
+// (function-defination) (function call);
+
+
+
+(function func_name() { // use with classic funtion
+    //statements
+})();
+
+
+(() => { // use with arrow funtion
+    //statements
+})();
+
+
+```
+
 ### Callback Functions
 
 The functions which are executed when a certain task is completed are known as callback functions.
