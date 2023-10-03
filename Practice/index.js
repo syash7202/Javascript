@@ -152,4 +152,51 @@ const var1 = (number1) => {
   console.log("arrow function");
 };
 
-//
+console.log("------------------------------------------");
+// Iterations (looping)
+
+// for of
+
+const arr10 = [1, 2, 3, 4, 5];
+
+for (const num of arr10) {
+  console.log(num);
+}
+
+const str2 = "Yash Sharma";
+
+for (const char of str2) {
+  console.log(`Character is : ${char}`);
+}
+
+// for in
+
+console.log("key : ");
+for (const key in student) {
+  console.log(key);
+}
+
+console.log("values : ");
+for (const key in student) {
+  console.log(student[key]);
+}
+
+console.log("myArray1 :");
+for (const num in myArray1) {
+  console.log(myArray1[num]);
+}
+
+// maps
+// sets only unique values
+
+const map = new Map();
+
+map.set("ICS-044", "Yash Sharma");
+map.set("ICS-036", "Shreya Tyagi");
+map.set("ICS-044", "Yash Sharma");
+
+console.log(map);
+
+for (const [key, value] of map) {
+  console.log(key, value);
+}
