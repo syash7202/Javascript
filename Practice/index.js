@@ -141,3 +141,15 @@ console.log(n); // user1.name will be printed
 console.log("------------------------------------------");
 
 //Functions
+
+function one() {
+  console.log("Classic Function ");
+}
+
+one();
+
+const var1 = (number1) => {
+  console.log("arrow function");
+};
+
+//
