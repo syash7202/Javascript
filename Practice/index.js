@@ -200,3 +200,34 @@ console.log(map);
 for (const [key, value] of map) {
   console.log(key, value);
 }
+
+// for each
+//for reach function has a callback funtion which doesn't return us anything to solve this we use filter function
+
+const arr11 = [
+  {
+    name: "yash",
+    age: 21,
+  },
+  {
+    name: "shreya",
+    age: 21,
+  },
+  {
+    name: "carter",
+    age: 21,
+  },
+  {
+    name: "daffo",
+    age: 21,
+  },
+];
+
+// iterating over array of objects
+arr11.forEach((item) => {
+  console.log(item.name, item.age);
+});
+
+const temp = myArray1.filter((item) => item > 2); //same for foreach will give undefined
+
+console.log(temp);
