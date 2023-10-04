@@ -429,4 +429,7 @@ var obj2 = {...obj1};
   - innnertext -> gives onlt the visisble text at the image
 
 - document.querySelector("tag_name i.e h2") : gives first h2 element on the page, and it works with all types css selectors when passed as parameters.
-- document.querySelectorAll("tag_name") : gives nodelistof all the element present with the parameter passed, also nodelist list is not array but have some features like forEach() for working; it works with all types css selectors when passed as parameters.
+
+- document.querySelectorAll("tag_name") : gives nodelist of all the element present with the parameter passed, **also nodelist list is not array** but have some features like forEach() for working; it works with all types css selectors when passed as parameters.
+
+- document.getElementByClassName("class") : gives HTML collection of the class items and is needed to be converted to array using Array.from(variable_name).
