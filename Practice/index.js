@@ -2,27 +2,27 @@
 
 // dates
 
-// let myDate = new Date();
-// console.log(myDate);
+let myDate = new Date();
+console.log(myDate);
 
-// console.log(myDate.toString());
-// console.log(myDate.toDateString());
-// console.log(myDate.toISOString());
-// console.log(myDate.toLocaleString());
-// console.log(typeof myDate);
+console.log(myDate.toString());
+console.log(myDate.toDateString());
+console.log(myDate.toISOString());
+console.log(myDate.toLocaleString());
+console.log(typeof myDate);
 
-// // custom date
+// custom date
 
-// let createDateNew = new Date(2023, 0, 17); //array starts from 0
-// console.log(createDateNew.toLocaleDateString());
-// let createDateNew2 = new Date("2023-1-17"); //array starts from 1
-// console.log(createDateNew2.toLocaleDateString());
+let createDateNew = new Date(2023, 0, 17); //array starts from 0
+console.log(createDateNew.toLocaleDateString());
+let createDateNew2 = new Date("2023-1-17"); //array starts from 1
+console.log(createDateNew2.toLocaleDateString());
 
-// let today = new Date();
-// console.log(today.getMonth()); // gives getMonth
-// console.log(today.getTime()); // gives time
+let today = new Date();
+console.log(today.getMonth()); // gives getMonth
+console.log(today.getTime()); // gives time
 
-// console.log(`${today.toLocaleDateString()} is date`);
+console.log(`${today.toLocaleDateString()} is date`);
 console.log("------------------------------------------");
 
 // arrays
@@ -224,6 +224,7 @@ const arr11 = [
 ];
 
 // iterating over array of objects
+// filter function -> this is a callback function which returns the values when declared to a variable
 arr11.forEach((item) => {
   console.log(item.name, item.age);
 });
@@ -231,3 +232,80 @@ arr11.forEach((item) => {
 const temp = myArray1.filter((item) => item > 2); //same for foreach will give undefined
 
 console.log(temp);
+
+const userlist = [
+  {
+    name: "yash",
+    age: 21,
+    skills: "devops",
+    department: "IT",
+    review: 278,
+    review: 278,
+  },
+  {
+    name: "daffo",
+    age: 20,
+    skills: "web-dev",
+    department: "CSE",
+    review: 259,
+  },
+  {
+    name: "carter",
+    age: 19,
+    skills: "none",
+    department: "tech",
+    review: 308,
+  },
+  {
+    name: "shreya",
+    age: 21,
+    skills: "frontend",
+    department: "automation",
+    review: 858,
+  },
+];
+
+let users = userlist.filter((user) => user.skills === "devops");
+console.log("For users with skill devops : ", users);
+
+users = userlist.filter((user) => user.age > 20);
+console.log("for users with age > 20 ", users);
+
+users = userlist.filter((user) => {
+  return (user.review > 250 && user.name === "yash") || user.name === "daffo";
+});
+console.log("for users with review > 250 and name is yash or daffo", users);
+
+console.log("------------------------------------------");
+
+// chaining -> process in which more than one function are used
+const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+let newNums = nums.map((num) => num * 100).map((num) => num + 2);
+console.log(newNums);
+
+newNums = nums
+  .map((num) => num * 100)
+  .map((num) => num + 2)
+  .filter((num) => num > 400);
+console.log(newNums);
+
+console.log("------------------------------------------");
+
+// reduce function
+// starts with inital value then operates with each array element
+// acc is accumulator or the inital value for loop given in end of function i.e 0 for now and currval is curent vlue of element in array
+
+// this is reduce funtion using classic function
+let numsTotal = nums.reduce(function (acc, currval) {
+  console.log(`acc : ${acc} and currval is ${currval}`);
+  return acc + currval;
+}, 0);
+console.log(`nums total is : ${numsTotal}`);
+
+console.log("------------------------------------------");
+// reduce function using arrow function
+let Total = nums.reduce((acc, currval) => acc + currval, 0);
+console.log(`total with reduce is : ${Total}`);
+
+console.log("------------------------------------------");
