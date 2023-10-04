@@ -423,9 +423,10 @@ var obj2 = {...obj1};
 ## DOM
 
 - document.getElementById("id").
-  -- innerHTML -> gives all the values inside a given element even html inside it.
-  -- innerContent -> gives all the text inside a given element even if its is hidden by css
-  -- innnertext -> gives onlt the visisble text at the image
+
+  - innerHTML -> gives all the values inside a given element even html inside it.
+  - innerContent -> gives all the text inside a given element even if its is hidden by css
+  - innnertext -> gives onlt the visisble text at the image
 
 - document.querySelector("tag_name i.e h2") : gives first h2 element on the page, and it works with all types css selectors when passed as parameters.
 - document.querySelectorAll("tag_name") : gives nodelistof all the element present with the parameter passed, also nodelist list is not array but have some features like forEach() for working; it works with all types css selectors when passed as parameters.
