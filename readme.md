@@ -325,8 +325,6 @@ The 'this' keyword refers to different objects depending on how it is used:
 |Function| In a strict mode, this is undefined|
 |Event| This refers to the element which received the event|
 
-## Browser context API
-
 ## Stack
 
 When a primitive variable is declared then you get a copy of the variable value and changes to it doesn't changes the original value.
@@ -421,3 +419,13 @@ var b = [...a]; //This gives b a copy of a and changes made to b don't reflect i
 var obj1 = {nmae:"Yash"};
 var obj2 = {...obj1};
 ```
+
+## DOM
+
+- document.getElementById("id").
+  -- innerHTML -> gives all the values inside a given element even html inside it.
+  -- innerContent -> gives all the text inside a given element even if its is hidden by css
+  -- innnertext -> gives onlt the visisble text at the image
+
+- document.querySelector("tag_name i.e h2") : gives first h2 element on the page, and it works with all types css selectors when passed as parameters.
+- document.querySelectorAll("tag_name") : gives nodelistof all the element present with the parameter passed, also nodelist list is not array but have some features like forEach() for working; it works with all types css selectors when passed as parameters.
