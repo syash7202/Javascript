@@ -76,10 +76,35 @@ addListItem("balle balle");
 
 // editing this list items using dom
 
-const secondItem = document.querySelector("li:nth-child(2)");
-const newli = document.createElement("li");
-newli.textContent = "edit kar diya";
-secondItem.replaceWith(newli);
+// const secondItem = document.querySelector("li:nth-child(2)");
+// const newli = document.createElement("li");
+// newli.textContent = "edit kar diya";
+// secondItem.replaceWith(newli);
 
-const lastItem = document.querySelector("li:last-child");
-lastItem.remove();
+// const lastItem = document.querySelector("li:last-child");
+// lastItem.remove();
+
+// ----------------------------------------------------------------------
+//              Events in js
+// ----------------------------------------------------------------------
+
+document.getElementById("imglist").addEventListener(
+  "click",
+  function (e) {
+    console.log(e);
+  },
+  false
+);
+
+document.getElementById("imglist").addEventListener(
+  "click",
+  function (e) {
+    console.log(e.target.tagName);
+    if (e.target.tagName === "IMG") {
+      // this check only removes img and not whole list bcz if we click li then parent is ul and it gets deleted
+      const removeIt = e.target.parentNode;
+      removeIt.remove();
+    }
+  },
+  false
+);
