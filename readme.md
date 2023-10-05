@@ -19,7 +19,7 @@ constant ---> stores immortal values
   -- it is function scope
   -- var adds itself to the window object
 
-```
+```javascript
 funticon abcd(){
 for(var i =0; i<10; i++){
 console.log(i);
@@ -33,7 +33,7 @@ console.log(i); // is valid and gives value to i=10 bcz i is declared inside fun
   -- it is braces-scoped
   -- let/const doesn't add itself to the window object
 
-```
+```javascript
 funticon abcd(){
 for(let i =0; i<10; i++){
 console.log(i);
@@ -52,7 +52,7 @@ console.log(i); // is invalid and gives error bcz though i is declared inside fu
 
 a variable or function can be used before its declaration.
 
-```
+```javascript
 console.log(a); // valid command
 var a = 100;
 ```
@@ -69,7 +69,7 @@ Hoisting behavior is different for let & const and var.
 
 **JavaScript evaluates expressions from left to right:**
 
-```
+```javascript
 let x = 20+10+"Yash";  ---> 30Yash
 
 let x = "Yash"20+10+;  ---> Yash2010
@@ -78,15 +78,13 @@ let x = "Yash"20+10+;  ---> Yash2010
 
 ## Conditionals (if, else, else-if )
 
-```
-if(condition){
-// statement
-}
-else if(condition){
-// statement : if (if) condition is false
-}
-else{
-// if above conditions are not met then else is executed.
+```javascript
+if (condition) {
+  // statement
+} else if (condition) {
+  // statement : if (if) condition is false
+} else {
+  // if above conditions are not met then else is executed.
 }
 ```
 
@@ -97,7 +95,7 @@ In JavaScript, everything is either a truthy value or a falsey value.
 - Falsy: 0, Flase, undefined, null, NaN, "" or ''
 - Truthy: all values other than falsy values
 
-```
+```javascript
 if("Yash){
     consle.log("Hii, Yash");
 }
@@ -115,52 +113,45 @@ else{
 
 ## Loops (for, forEach, for-in, while, do-while)
 
-```
-for(var i =0; i<10;i++){
-
-}
+```javascript
+for (var i = 0; i < 10; i++) {}
 
 // forEach works on array
-var a = [1,2,3,4,5,6,7,8,9]
-a.forEach(function(val){
-    console.log(val+2); //forEach by default doesn't edit the real value of array.
-})
+var a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+a.forEach(function (val) {
+  console.log(val + 2); //forEach by default doesn't edit the real value of array.
+});
 
 // forIn works on objects
 var obj = {
-    name: "Yash",
-    age: 21,
-    city: "New Delhi"
+  name: "Yash",
+  age: 21,
+  city: "New Delhi",
+};
+
+for (var key in obj) {
+  console.log(key, obj[key]); // key is the variable name
 }
 
-for(var key in obj){
-    console.log(key, obj[key]); // key is the variable name
-}
+while (condition) {}
 
-
-while(condition){
-
-}
-
-do{
-
-}while(condition)
+do {} while (condition);
 ```
 
 ## Functions
 
-```
-function function_name(parameters){ // defination
-//statements
+```javascript
+function function_name(parameters) {
+  // defination
+  //statements
 }
 
 function_name(arguements); // function call
-
 ```
 
 ### Arrow Functions
 
-```
+```javascript
 // normal arrow function
 const var_name = () => {
     //statement
@@ -177,7 +168,7 @@ When the function are called as soon as it is declared are know as IIFE reason t
 <br>
 These function doesnt end with the block scope and thus need semicolon(;) at end.
 
-```
+```javascript
     ()(); // syntax for the IIFE
 // (function-defination) (function call);
 
@@ -209,7 +200,7 @@ The functions which are executed when a certain task is completed are known as c
 
 In javascript variables can carry a value as a function.
 
-```
+```javascript
 function abcd(a){
     a();
 }
@@ -226,8 +217,8 @@ abcd(function(){console.log("Yash");})
 
 group of similar data types values stored in a linear fashion in memory.
 
-```
-var arr = [1,2,3,4,5,6,7,8,9];
+```javascript
+var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 ```
 
 ### Push Pop Shift Unshift Splice
@@ -248,7 +239,7 @@ arr.splice(2,5) ---> remove from 2 index and 5 elements i.e (3,4,5,6,7)
 
 Array created in JS aren't stored as array but as objects.
 
-```
+```javascript
 var arr = [9,8,7,6,5,4];  --->  arr = {
                            |             0:9,
                            |             1:8,
@@ -265,7 +256,7 @@ To check if it's an array one can use a function called isArray([]).
 
 As an array is stored as an object it can be done.
 
-```
+```javascript
 var arr = [9,8,7,6,5,4];  --->  arr = {
 arr[-1] = 10;               |            0:9,
                             |            1:8,
@@ -282,7 +273,7 @@ arr[-1] = 10;               |            0:9,
 1. Blank object: var a = {};
 2. Filled object :
 
-```
+```javascript
 
    const mySymbol = symbol("value1);
 
@@ -329,7 +320,7 @@ The 'this' keyword refers to different objects depending on how it is used:
 
 When a primitive variable is declared then you get a copy of the variable value and changes to it doesn't changes the original value.
 
-```
+```javascript
 let myName = "YASH";
 let myOtherName = myName;
 
@@ -345,7 +336,7 @@ console.log(myOtherName);   --> carter
 
 When a non-primitive variable is declared then you get a reference of the variable and changes to it changes the original value.
 
-```
+```javascript
 let myID= {
     name: "yash"
     age: 21
@@ -380,7 +371,7 @@ When a function is executed it makes its own imaginary container which contains 
 2. Functions inside that parent function
 3. Lexical Environment of that function
 
-```
+```javascript
 let num1 = 10;
 let num2 = 20;
 
@@ -412,12 +403,12 @@ it is technically a chart containing the scope & scope-chain of that particular 
 
 it is done by using the spread operator '...' as it copies the value from a variable or object.
 
-```
-var a = [1,2,3,4,5,6,7,8,9];
+```javascript
+var a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 var b = [...a]; //This gives b a copy of a and changes made to b don't reflect in a.
 
-var obj1 = {nmae:"Yash"};
-var obj2 = {...obj1};
+var obj1 = { nmae: "Yash" };
+var obj2 = { ...obj1 };
 ```
 
 ## DOM
@@ -433,3 +424,30 @@ var obj2 = {...obj1};
 - document.querySelectorAll("tag_name") : gives nodelist of all the element present with the parameter passed, **also nodelist list is not array** but have some features like forEach() for working; it works with all types css selectors when passed as parameters.
 
 - document.getElementByClassName("class") : gives HTML collection of the class items and is needed to be converted to array using Array.from(variable_name).
+
+## Events
+
+```javascript
+document.getElementById("parent").addEventListener(
+  "click",
+  function (e) {
+    console.log("clicked parent);
+  },
+  false
+);
+document.getElementById("child").addEventListener(
+  "click",
+  function (e) {
+    console.log("clicked child);
+    e.stopPropagation();
+  },
+  false
+);
+```
+
+The Event propagations goes with two senarios :
+
+- Event Capturing : true, follows top-down approach i.e first parent then child
+- Event Bubbling : false (default), follows bottoms-up approach i.e first child then parent
+
+And to stop propagation stopProgation() is used.
