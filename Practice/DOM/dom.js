@@ -108,3 +108,38 @@ document.getElementById("imglist").addEventListener(
   },
   false
 );
+// ----------------------------------------------------------------------
+//              Async in jS
+// ----------------------------------------------------------------------
+
+let intervalID;
+
+const startBtn = document.getElementById("btn1");
+startBtn.addEventListener("click", function () {
+  intervalID = setInterval(function () {
+    console.log("started");
+  }, 1000);
+});
+
+const stopBtn = document.getElementById("btn2");
+stopBtn.addEventListener("click", function () {
+  console.log("stoped");
+  clearInterval(intervalID);
+});
+
+const startBGCbtn = document.getElementById("btn-bgc-1");
+const stopBGCbtn = document.getElementById("btn-bgc-2");
+let intervalbgc;
+startBGCbtn.addEventListener("click", function () {
+  startBGCbtn.disabled = true;
+  intervalbgc = setInterval(function () {
+    let randomNumber = Math.floor(Math.random() * 16777215);
+    let randomCode = "#" + randomNumber.toString(16);
+    document.body.style.backgroundColor = `${randomCode}`;
+  }, 1000);
+});
+
+stopBGCbtn.addEventListener("click", function () {
+  clearInterval(intervalbgc);
+  startBGCbtn.disabled = false;
+});
