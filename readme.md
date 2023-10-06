@@ -451,3 +451,18 @@ The Event propagations goes with two senarios :
 - Event Bubbling : false (default), follows bottoms-up approach i.e first child then parent
 
 And to stop propagation stopProgation() is used.
+
+## Async fundamentals
+
+By default JS is Synchronous but to have some functions run and respond at a certain time we can make then asynchronous.
+![Alt text](image.png)
+
+## Promise
+
+is an object representing the eventual completion or failure of an asynchronous operation.
+
+A promise has three states :
+
+- pemding : initial state
+- fulfilled : completed susscessfully
+- rejected : failed
