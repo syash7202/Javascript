@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>key Code</title>
+    <style>
+      body {
+        background-color: rgba(15, 12, 17, 0.56);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      tr:nth-child(even) {
+        background-color: rgba(150, 212, 212, 0.4);
+      }
+
+      th:nth-child(even),
+      td:nth-child(even) {
+        background-color: rgba(150, 212, 212, 0.4);
+      }
+      td {
+        text-align: center;
+        font-size: x-large;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="insert">
+      <div class="key"><h1>Press any key !</h1></div>
+    </div>
+
+    <script src="./key-code.js"></script>
+  </body>
+</html>
