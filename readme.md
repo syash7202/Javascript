@@ -604,4 +604,4 @@ The new object is returned: After the constructor function has been called, if i
 
 1. If all arrays, string, functions passes as objects then if we directly injecting any property to class Object then all the functions, strings & functins will be having access to it.
 
-2. Reverse of it won't be possible, if property is injected to any array if say then other functions and strings won't have it not even class Object
+2. Reverse of it won't be possible, if property is injected to any array if say then other functions and strings won't have it not even class Object.
