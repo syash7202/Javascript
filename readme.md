@@ -538,7 +538,7 @@ async function consumePromiseFour() {
 consumePromiseFour();
 ```
 
-## JavaScript & classes
+## New keyword
 
 Classes in javaScript are recently introduces in ES6 (2015). JavaScript is a protype-functional-language. Though it now has classes and objects but it works in prototype functioning behind the scenes.
 
@@ -554,6 +554,7 @@ When `new` keyword is used :
 ## Prototype
 
 Evrything in JavaScript is an object. and prototype is a wy in which JS gives one layer up from current element to object to gives more features to it. then more it goes to proto-roots.
+![PRototype](image-2.png)
 
 While tracking layers up and it includes all the parent element features to it.
 
@@ -567,3 +568,40 @@ console.log(multiplicationNum);
 console.log(multiplicationNum.prototype);
 console.log(multiplicationNum.prototype.prototype); // function -> object -> null
 ```
+
+### Injecting new property into execting function using prototype
+
+```javascript
+function createUser(username, age) {
+  this.username = username; // here this is used to clarify that username in arguement and function defination
+  this.age = age;
+}
+
+createUser.prototype.increment = function () {
+  // injecting a new property increment into prototype of createUser
+  this.age++;
+};
+
+// const user1 =  createUser("Yash", 21);  // this will give error
+const user1 = new createUser("Yash", 21);
+const user2 = new createUser("Daffo", 21);
+
+user1.increment(); // this gives erroe as it is undefined till now, the increment property has been created by now injected to user1 for this we have to use `new` while creating an object. As `new` will give new instance  of createUser
+console.log(user1.age);
+```
+
+Here's what happens behind the scenes when the new keyword is used:
+
+A new object is created: The new keyword initiates the creation of a new JavaScript object.
+
+A prototype is linked: The newly created object gets linked to the prototype property of the constructor function. This means that it has access to properties and methods defined on the constructor's prototype.
+
+The constructor is called: The constructor function is called with the specified arguments and this is bound to the newly created object. If no explicit return value is specified from the constructor, JavaScript assumes this, the newly created object, to be the intended return value.
+
+The new object is returned: After the constructor function has been called, if it doesn't return a non-primitive value (object, array, function, etc.), the newly created object is returned.
+
+### Prototype Inheritance
+
+1. If all arrays, string, functions passes as objects then if we directly injecting any property to class Object then all the functions, strings & functins will be having access to it.
+
+2. Reverse of it won't be possible, if property is injected to any array if say then other functions and strings won't have it not even class Object
