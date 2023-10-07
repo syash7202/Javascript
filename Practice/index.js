@@ -432,5 +432,85 @@ function multiplicationNum(num) {
 
 console.log(multiplicationNum(10));
 console.log(multiplicationNum);
-console.log(multiplicationNum.prototype);
-console.log(multiplicationNum.prototype.prototype); // function -> object -> null
+console.log(multiplicationNum.prototype); //function -> object
+console.log(multiplicationNum.prototype.prototype); // function -> object -> null  // thats why is gives undefined
+
+// how properties are injected to new objects
+
+function createUser(username, age) {
+  this.username = username; // here this is used to clarify that username in arguement and function defination
+  this.age = age;
+}
+
+createUser.prototype.increment = function () {
+  // injecting a new property increment into prototype of createUser
+  this.age++;
+};
+
+// const user1 =  createUser("Yash", 21);  // this will give error
+const user1 = new createUser("Yash", 21);
+const user2 = new createUser("Daffo", 21);
+
+user1.increment(); // this gives erroe as it is undefined till now, the increment property has been created by now injected to user1 for this we have to use `new` while creating an object. As `new` will give new instance  of createUser
+console.log(user1.age);
+
+// Prototyping access level implementation
+
+// creating an array and object
+
+const tempArr = ["yash", "shreya", "daffo", "carter"];
+
+const userObject = {
+  name: "Yash",
+  alias: "carter",
+  spouse: "shreya",
+  alias_spouse: "daffo",
+};
+
+Object.prototype.textPass = () => {
+  // assigned to object class not to a specific objects
+  console.log("Object class function");
+};
+
+// both has access
+tempArr.textPass();
+userObject.textPass();
+
+// now injecting to array class
+Array.prototype.textPass2 = () => {
+  console.log("array class function");
+};
+
+// only array has access
+tempArr.textPass2();
+// userObject.textPass2(); // gives error
+
+// Inheritance in prototyping
+// to have inheritence we have __proto__ is prototype which is used
+
+const userMain = {
+  name: "Yash",
+};
+
+const userMain1 = {
+  age: 21,
+};
+
+const userMain2 = {
+  isWorking: true,
+  __proto__: userMain1, // old method of inheriting
+};
+
+const userMain3 = {
+  skills: "JS",
+};
+
+userMain1.__proto__ = userMain; //old method
+console.log(userMain2.age);
+console.log(userMain1.name);
+
+// mordern way
+
+Object.setPrototypeOf(userMain3, userMain2); // userMain3 has inherited properties from userMain2
+
+console.log(userMain3.isWorking);
