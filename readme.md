@@ -455,7 +455,7 @@ And to stop propagation stopProgation() is used.
 ## Async fundamentals
 
 By default JS is Synchronous but to have some functions run and respond at a certain time we can make then asynchronous.
-![Alt text](image.png)
+![Async ](image.png)
 
 ## Promise
 
@@ -466,3 +466,104 @@ A promise has three states :
 - pemding : initial state
 - fulfilled : completed susscessfully
 - rejected : failed
+
+![Promise](image-1.png)
+
+To handel the promises we have three methods :
+
+- **.catch()** : Appends a rejection handler callback to the promise, and returns a new promise resolving to the return value of the callback if it is called, or to its original fulfillment value if the promise is instead fulfilled.
+
+- **.finally()** : Appends a handler to the promise, and returns a new promise that is resolved when the original promise is resolved. The handler is called when the promise is settled, whether fulfilled or rejected.
+
+- **.then()** : Appends fulfillment and rejection handlers to the promise, and returns a new promise resolving to the return value of the called handler, or to its original settled value if the promise was not handled
+
+```javascript
+const promiseOne = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const check = true;
+    if (!check) {
+      console.log("its done");
+      resolve({
+        username: "Carter",
+        age: 21,
+      });
+    } else {
+      reject("Error : something went wrong");
+    }
+  }, 1000);
+});
+
+promiseOne
+  .then((username) => {
+    console.log(username);
+  })
+  .catch((error) => {
+    // catch is used for reject
+    console.log(error);
+  })
+  .finally(() => {
+    console.log("The promise is either resolved or rejected");
+  });
+```
+
+OR we can use **async-await** :
+
+but we have to use it in try and catch to hande l errors gracefully.
+
+```javascript
+const promiseOne = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const check = true;
+    if (!check) {
+      console.log("its done");
+      resolve({
+        username: "Carter",
+        age: 21,
+      });
+    } else {
+      reject("Error : something went wrong");
+    }
+  }, 1000);
+});
+
+async function consumePromiseFour() {
+  try {
+    const response = await promiseFour;
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+consumePromiseFour();
+```
+
+## JavaScript & classes
+
+Classes in javaScript are recently introduces in ES6 (2015). JavaScript is a protype-functional-language. Though it now has classes and objects but it works in prototype functioning behind the scenes.
+
+The `new` keyword gives us a new instance of that object and is basically a constructor.
+
+When `new` keyword is used :
+
+1. Empty object literal is created `{}` known as instance.
+2. A constructor function is called and given arguements are passed.
+3. Now `this` keyword injects all the arguements into the object literal.
+4. Retured in the function to use.
+
+## Prototype
+
+Evrything in JavaScript is an object. and prototype is a wy in which JS gives one layer up from current element to object to gives more features to it. then more it goes to proto-roots.
+
+While tracking layers up and it includes all the parent element features to it.
+
+```javascript
+function multiplicationNum(num) {
+  return num * 10;
+}
+
+console.log(multiplicationNum(10));
+console.log(multiplicationNum);
+console.log(multiplicationNum.prototype);
+console.log(multiplicationNum.prototype.prototype); // function -> object -> null
+```
