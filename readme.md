@@ -541,7 +541,7 @@ consumePromiseFour();
 
 ## New keyword
 
-Classes in javaScript are recently introduces in ES6 (2015). JavaScript is a protype-functional-language. Though it now has classes and objects but it works in prototype functioning behind the scenes.
+Classes in javaScript are recently introduces in ES6 (2015). JavaScript is a prototype-functional-language. Though it now has classes and objects but it works in prototype functioning behind the scenes.
 
 The `new` keyword gives us a new instance of that object and is basically a constructor.
 
@@ -554,7 +554,7 @@ When `new` keyword is used :
 
 ## Prototype
 
-Evrything in JavaScript is an object. and prototype is a wy in which JS gives one layer up from current element to object to gives more features to it. then more it goes to proto-roots.
+Evrything in JavaScript is an object. and prototype is a way in which JS goes one layer up from current element to object to gives more features to it. then more it goes to proto-roots.
 ![Alt text](prototype.png)
 
 While tracking layers up and it includes all the parent element features to it.
@@ -669,3 +669,5 @@ function createUser(username, age, id) {
 const userYash = new createUser("yash", 21, "044");
 console.log(userYash);
 ```
+
+## Classes in JS
