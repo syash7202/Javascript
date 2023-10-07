@@ -455,7 +455,8 @@ And to stop propagation stopProgation() is used.
 ## Async fundamentals
 
 By default JS is Synchronous but to have some functions run and respond at a certain time we can make then asynchronous.
-![Async ](image.png)
+
+![Alt text](async.png)
 
 ## Promise
 
@@ -467,7 +468,7 @@ A promise has three states :
 - fulfilled : completed susscessfully
 - rejected : failed
 
-![Promise](image-1.png)
+![Alt text](promises.png)
 
 To handel the promises we have three methods :
 
@@ -554,7 +555,7 @@ When `new` keyword is used :
 ## Prototype
 
 Evrything in JavaScript is an object. and prototype is a wy in which JS gives one layer up from current element to object to gives more features to it. then more it goes to proto-roots.
-![PRototype](image-2.png)
+![Alt text](prototype.png)
 
 While tracking layers up and it includes all the parent element features to it.
 
@@ -592,16 +593,79 @@ console.log(user1.age);
 
 Here's what happens behind the scenes when the new keyword is used:
 
-A new object is created: The new keyword initiates the creation of a new JavaScript object.
+1. **A new object is created**: The new keyword initiates the creation of a new JavaScript object.
 
-A prototype is linked: The newly created object gets linked to the prototype property of the constructor function. This means that it has access to properties and methods defined on the constructor's prototype.
+2. **A prototype is linked**: The newly created object gets linked to the prototype property of the constructor function. This means that it has access to properties and methods defined on the constructor's prototype.
 
-The constructor is called: The constructor function is called with the specified arguments and this is bound to the newly created object. If no explicit return value is specified from the constructor, JavaScript assumes this, the newly created object, to be the intended return value.
+3. **The constructor is called**: The constructor function is called with the specified arguments and this is bound to the newly created object. If no explicit return value is specified from the constructor, JavaScript assumes this, the newly created object, to be the intended return value.
 
-The new object is returned: After the constructor function has been called, if it doesn't return a non-primitive value (object, array, function, etc.), the newly created object is returned.
+4. **The new object is returned**: After the constructor function has been called, if it doesn't return a non-primitive value (object, array, function, etc.), the newly created object is returned.
 
 ### Prototype Inheritance
 
 1. If all arrays, string, functions passes as objects then if we directly injecting any property to class Object then all the functions, strings & functins will be having access to it.
 
 2. Reverse of it won't be possible, if property is injected to any array if say then other functions and strings won't have it not even class Object.
+
+```javascript
+/ Inheritance in prototyping
+// to have inheritence we have __proto__ is prototype which is used
+
+const userMain = {
+  name: "Yash",
+};
+
+const userMain1 = {
+  age: 21,
+};
+
+const userMain2 = {
+  isWorking: true,
+  __proto__: userMain1, // old method of inheriting
+};
+
+const userMain3 = {
+  skills: "JS",
+};
+
+userMain1.__proto__ = userMain; //old method
+console.log(userMain2.age);
+console.log(userMain1.name);
+
+// mordern way
+
+Object.setPrototypeOf(userMain3, userMain2); // userMain3 has inherited properties from userMain2
+
+console.log(userMain3.isWorking);
+
+```
+
+## Calls in JS
+
+what happens is both the functions have there own execution context but in call stack orders :
+
+- setUser
+- createUser
+- global exec
+
+to explicitly call function `.call` is used
+this.username is now will use execution context of setUser function and as the work is completed the execution context is removed from call stack and this it is not set in createuser.
+But we can pass the execution context of createUser to setUser then this working in setUser will be working in createUser context and store values and to do so first arguement this is passed.
+
+```javascript
+//  Calls in JS
+
+function setUser(username) {
+  this.username = username;
+}
+
+function createUser(username, age, id) {
+  // setUser.call(username); // call the function but value won't be set. output -> createUser { age: 21, id: '044' }
+  setUser.call(this, username);
+  this.age = age;
+  this.id = id;
+}
+
+const userYash = new createUser("yash", 21, "044");
+console.log(userYash);
+```
