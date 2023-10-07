@@ -312,76 +312,125 @@
 
 // Promise in JS
 
-const promiseOne = new Promise(function (resolve, reject) {
-  // Do async tasks
-  // DB calls, cyrptography, network calls ,etc
+// const promiseOne = new Promise(function (resolve, reject) {
+//   // Do async tasks
+//   // DB calls, cyrptography, network calls ,etc
 
-  setTimeout(() => {
-    console.log("async task done");
-    resolve(); // this connects with resolve parameter to consume a promise
-  }, 1000);
-});
+//   setTimeout(() => {
+//     console.log("async task done");
+//     resolve(); // this connects with resolve parameter to consume a promise
+//   }, 1000);
+// });
 
-promiseOne.then(() => {
-  console.log("promise one resolved");
-});
+// promiseOne.then(() => {
+//   console.log("promise one resolved");
+// });
 
-const promiseTwo = new Promise(function (resolve, reject) {
-  setTimeout(() => {
-    console.log("async task 2");
-    resolve({
-      username: "Yash",
-      age: 21,
-    }); // data with this promise is returned via resolve
-  }, 1000);
-});
+// const promiseTwo = new Promise(function (resolve, reject) {
+//   setTimeout(() => {
+//     console.log("async task 2");
+//     resolve({
+//       username: "Yash",
+//       age: 21,
+//     }); // data with this promise is returned via resolve
+//   }, 1000);
+// });
 
-promiseTwo.then((user) => {
-  console.log(user);
-});
+// promiseTwo.then((user) => {
+//   console.log(user);
+// });
 
-const promiseThree = new Promise((resolve) => {
-  setTimeout(() => {
-    console.log("three done");
-    resolve({
-      username: "Carter",
-      age: 21,
-    });
-  }, 1000);
-});
+// const promiseThree = new Promise((resolve) => {
+//   setTimeout(() => {
+//     console.log("three done");
+//     resolve({
+//       username: "Carter",
+//       age: 21,
+//     });
+//   }, 1000);
+// });
 
-promiseThree
-  .then((user) => {
-    console.log(user);
-    return user.username; //return on this will be in another then to access data from db or network call
-  })
-  .then((usernaame) => {
-    console.log(usernaame);
-  });
+// promiseThree
+//   .then((user) => {
+//     console.log(user);
+//     return user.username; //return on this will be in another then to access data from db or network call
+//   })
+//   .then((usernaame) => {
+//     console.log(usernaame);
+//   });
 
-const promiseFour = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    const check = true;
-    if (!check) {
-      console.log("three done");
-      resolve({
-        username: "Carter",
-        age: 21,
-      });
-    } else {
-      reject("Error : something went wrong");
-    }
-  }, 1000);
-});
+// const promiseFour = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     const check = true;
+//     if (!check) {
+//       console.log("three done");
+//       resolve({
+//         username: "Carter",
+//         age: 21,
+//       });
+//     } else {
+//       reject("Error : something went wrong");
+//     }
+//   }, 1000);
+// });
 
-promiseFour
-  .then((usernaame) => {
-    console.log(usernaame);
-  })
-  .catch((error) => {
-    // catch is used for reject
-    console.log(error);
-  })
-  .finally(() => {
-    console.log("The promise is either resolved or rejected");
-  });
+// promiseFour
+//   .then((username) => {
+//     console.log(username);
+//   })
+//   .catch((error) => {
+//     // catch is used for reject
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     console.log("The promise is either resolved or rejected");
+//   });
+
+// //  async await
+
+// async function consumePromiseFour() {
+//   try {
+//     const response = await promiseFour;
+//     console.log(response);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
+// consumePromiseFour();
+
+// using api data with async await
+
+// async function userInfo() {
+//   try {
+//     const response = await fetch("https://api.github.com/users/syash7202");
+//     console.log(response);
+//     const data = await response.json(); // bcz this operation also takes time
+//     console.log(data);
+//   } catch (error) {
+//     console.log("Error in api ");
+//   }
+// }
+// userInfo();
+
+// fetch("https://api.github.com/users/syash7202")
+//   .then((response) => {
+//     return response.json();
+//   })
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch((reject) => {
+//     console.log("error in then ");
+//   });
+
+console.log("------------------------------------------");
+
+function multiplicationNum(num) {
+  return num * 10;
+}
+
+console.log(multiplicationNum(10));
+console.log(multiplicationNum);
+console.log(multiplicationNum.prototype);
+console.log(multiplicationNum.prototype.prototype); // function -> object -> null
