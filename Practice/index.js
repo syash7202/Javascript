@@ -424,93 +424,157 @@
 //     console.log("error in then ");
 //   });
 
-console.log("------------------------------------------");
+// console.log("------------------------------------------");
 
-function multiplicationNum(num) {
-  return num * 10;
+// function multiplicationNum(num) {
+//   return num * 10;
+// }
+
+// console.log(multiplicationNum(10));
+// console.log(multiplicationNum);
+// console.log(multiplicationNum.prototype); //function -> object
+// console.log(multiplicationNum.prototype.prototype); // function -> object -> null  // thats why is gives undefined
+
+// // how properties are injected to new objects
+
+// function createUser(username, age) {
+//   this.username = username; // here this is used to clarify that username in arguement and function defination
+//   this.age = age;
+// }
+
+// createUser.prototype.increment = function () {
+//   // injecting a new property increment into prototype of createUser
+//   this.age++;
+// };
+
+// // const user1 =  createUser("Yash", 21);  // this will give error
+// const user1 = new createUser("Yash", 21);
+// const user2 = new createUser("Daffo", 21);
+
+// user1.increment(); // this gives error as it is undefined till now, the increment property has been created by now injected to user1 for this we have to use `new` while creating an object. As `new` will give new instance  of createUser
+// console.log(user1.age);
+
+// // Prototyping access level implementation
+
+// // creating an array and object
+
+// const tempArr = ["yash", "shreya", "daffo", "carter"];
+
+// const userObject = {
+//   name: "Yash",
+//   alias: "carter",
+//   spouse: "shreya",
+//   alias_spouse: "daffo",
+// };
+
+// Object.prototype.textPass = () => {
+//   // assigned to object class not to a specific objects
+//   console.log("Object class function");
+// };
+
+// // both has access
+// tempArr.textPass();
+// userObject.textPass();
+
+// // now injecting to array class
+// Array.prototype.textPass2 = () => {
+//   console.log("array class function");
+// };
+
+// // only array has access
+// tempArr.textPass2();
+// // userObject.textPass2(); // gives error
+
+// // Inheritance in prototyping
+// // to have inheritence we have __proto__ is prototype which is used
+
+// const userMain = {
+//   name: "Yash",
+// };
+
+// const userMain1 = {
+//   age: 21,
+// };
+
+// const userMain2 = {
+//   isWorking: true,
+//   __proto__: userMain1, // old method of inheriting
+// };
+
+// const userMain3 = {
+//   skills: "JS",
+// };
+
+// userMain1.__proto__ = userMain; //old method
+// console.log(userMain2.age);
+// console.log(userMain1.name);
+
+// // mordern way
+
+// Object.setPrototypeOf(userMain3, userMain2); // userMain3 has inherited properties from userMain2
+
+// console.log(userMain3.isWorking);
+
+// console.log("------------------------------------------");
+
+// //  Calls in JS
+
+// function setUser(username) {
+//   this.username = username;
+// }
+
+// function createUser(username, age, id) {
+//   // setUser.call(username); // call the function but value won't be set. output -> createUser { age: 21, id: '044' }
+//   setUser.call(this, username);
+//   this.age = age;
+//   this.id = id;
+// }
+
+// const userYash = new createUser("yash", 21, "044");
+// console.log(userYash);
+// // what happens is both the functions have there own execution context but in call stack orders
+// /*
+// setUser
+// createUser
+// global exec
+
+// */
+// // to explicitly call function `.call` is used
+// // this.username is now will use execution context of setUser function and as the work is completed the execution context is removed from call stack and this it is not set in createuser.
+// // But we can pass the execution context of createUser to setUser then this working in setUser will be working in createUser context and store values and to do so first arguement this is passed.
+
+// // console.log("------------------------------------------");
+
+// // classes in JS
+
+class userList {
+  constructor(username, age, id) {
+    this.username = username;
+    this.age = age;
+    this.id = id;
+  }
+
+  trueAge() {
+    return `${this.age + 5}`;
+  }
 }
 
-console.log(multiplicationNum(10));
-console.log(multiplicationNum);
-console.log(multiplicationNum.prototype); //function -> object
-console.log(multiplicationNum.prototype.prototype); // function -> object -> null  // thats why is gives undefined
+const userNew = new userList("yash", 21, "044"); //its just a function but behaves like an object
+console.log(userNew.trueAge());
 
-// how properties are injected to new objects
+// how thw same code goes behind the scenes
 
-function createUser(username, age) {
-  this.username = username; // here this is used to clarify that username in arguement and function defination
+function userList2(username, age, id) {
+  this.username = username;
   this.age = age;
+  this.id = id;
 }
 
-createUser.prototype.increment = function () {
-  // injecting a new property increment into prototype of createUser
-  this.age++;
+// to have method we inject properties
+
+userList2.prototype.trueAge = () => {
+  return `${this.age + 5}`;
 };
 
-// const user1 =  createUser("Yash", 21);  // this will give error
-const user1 = new createUser("Yash", 21);
-const user2 = new createUser("Daffo", 21);
-
-user1.increment(); // this gives erroe as it is undefined till now, the increment property has been created by now injected to user1 for this we have to use `new` while creating an object. As `new` will give new instance  of createUser
-console.log(user1.age);
-
-// Prototyping access level implementation
-
-// creating an array and object
-
-const tempArr = ["yash", "shreya", "daffo", "carter"];
-
-const userObject = {
-  name: "Yash",
-  alias: "carter",
-  spouse: "shreya",
-  alias_spouse: "daffo",
-};
-
-Object.prototype.textPass = () => {
-  // assigned to object class not to a specific objects
-  console.log("Object class function");
-};
-
-// both has access
-tempArr.textPass();
-userObject.textPass();
-
-// now injecting to array class
-Array.prototype.textPass2 = () => {
-  console.log("array class function");
-};
-
-// only array has access
-tempArr.textPass2();
-// userObject.textPass2(); // gives error
-
-// Inheritance in prototyping
-// to have inheritence we have __proto__ is prototype which is used
-
-const userMain = {
-  name: "Yash",
-};
-
-const userMain1 = {
-  age: 21,
-};
-
-const userMain2 = {
-  isWorking: true,
-  __proto__: userMain1, // old method of inheriting
-};
-
-const userMain3 = {
-  skills: "JS",
-};
-
-userMain1.__proto__ = userMain; //old method
-console.log(userMain2.age);
-console.log(userMain1.name);
-
-// mordern way
-
-Object.setPrototypeOf(userMain3, userMain2); // userMain3 has inherited properties from userMain2
-
-console.log(userMain3.isWorking);
+const userNewBasic = new userList2("yash", 21, "044");
+console.log(userNewBasic.trueAge());
