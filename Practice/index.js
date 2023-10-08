@@ -545,7 +545,7 @@
 
 // // console.log("------------------------------------------");
 
-// // classes in JS
+// classes in JS
 
 class userList {
   constructor(username, age, id) {
@@ -557,11 +557,16 @@ class userList {
   trueAge() {
     return `${this.age + 5}`;
   }
+
+  static trueID() {
+    // static keyword doesn't give access of method to objects created
+    return `${this.age + 5}`;
+  }
 }
 
 const userNew = new userList("yash", 21, "044"); //its just a function but behaves like an object
 console.log(userNew.trueAge());
-
+// console.log(userNew.trueID()); // gives error
 // how thw same code goes behind the scenes
 
 function userList2(username, age, id) {
@@ -570,11 +575,20 @@ function userList2(username, age, id) {
   this.id = id;
 }
 
-// to have method we inject properties
+// // to have method we inject properties
 
-userList2.prototype.trueAge = () => {
+userList2.prototype.trueAge = function () {
   return `${this.age + 5}`;
 };
 
 const userNewBasic = new userList2("yash", 21, "044");
 console.log(userNewBasic.trueAge());
+// inheritance in classes
+
+class userID extends userList {
+  constructor(username, age, id) {
+    super(username); // no need to pass this from userID to userList `super` keyword to it automatically
+    this.age = age;
+    this.id = id;
+  }
+}
